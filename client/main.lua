@@ -209,7 +209,7 @@ end)
 -- Display markers
 Citizen.CreateThread(function()
     while true do
-        Wait(0)
+        Citizen.Wait(10)
         local coords = GetEntityCoords(GetPlayerPed(-1))
         for k,v in pairs(Config.Zones) do
             for i = 1, #v.Pos, 1 do
@@ -225,7 +225,7 @@ end)
 Citizen.CreateThread(function()
     while true do
         
-        Wait(0)
+        Citizen.Wait(10)
         
         local coords      = GetEntityCoords(GetPlayerPed(-1))
         local isInMarker  = false
@@ -258,7 +258,7 @@ end)
 Citizen.CreateThread(function()
     while true do
 
-        Citizen.Wait(0)
+        Citizen.Wait(10)
 
         if CurrentAction ~= nil then
             SetTextComponentFormat('STRING')
@@ -272,7 +272,7 @@ Citizen.CreateThread(function()
         end
 
         if Config.EnableControls then
-            if IsControlJustReleased(0, Keys['K']) and not IsDead then
+            if IsControlJustReleased(0, Keys['K']) and GetLastInputMethod(2) and not IsDead then
                 OpenAccessoryMenu()
             end
         end

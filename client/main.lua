@@ -157,27 +157,17 @@ function OpenShopMenu(accessory)
 end
 
 AddEventHandler('playerSpawned', function()
-    IsDead = false
+	IsDead = false
 end)
 
-AddEventHandler('baseevents:onPlayerDied', function(killerType, coords)
-    TriggerEvent('esx_ambulancejob:onPlayerDeath')
-end)
-
-AddEventHandler('baseevents:onPlayerKilled', function(killerId, data)
-    TriggerEvent('esx_ambulancejob:onPlayerDeath')
-end)
-
-AddEventHandler('esx_ambulancejob:onPlayerDeath', function()
-    IsDead = true
+AddEventHandler('esx:onPlayerDeath', function()
+	IsDead = true
 end)
 
 AddEventHandler('esx_accessories:hasEnteredMarker', function(zone)
-
-    CurrentAction     = 'shop_menu'
-    CurrentActionMsg  = _U('press_access')
-    CurrentActionData = { accessory = zone }
-
+	CurrentAction     = 'shop_menu'
+	CurrentActionMsg  = _U('press_access')
+	CurrentActionData = { accessory = zone }
 end)
 
 AddEventHandler('esx_accessories:hasExitedMarker', function(zone)
